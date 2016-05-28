@@ -7,6 +7,7 @@ import charactersData from'./data/characters'
 
 import { characterType } from './types/charactersType'
 import { houseType } from './types/housesType'
+import { genderType } from './types/genderType'
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -19,9 +20,9 @@ const schema = new GraphQLSchema({
         },
         resolve: (_, { name }) => {
           if(name) {
-            return housesData.houses.filter(h => h.name === name)
+            return housesData.filter(h => h.name === name)
           }
-          return housesData.houses
+          return housesData
         }
       },
       characters: {
@@ -31,9 +32,30 @@ const schema = new GraphQLSchema({
         },
         resolve: (_, { firstname }) => {
           if(firstname) {
-            return charactersData.characters.filter(c => c.firstname === firstname)
+            return charactersData.filter(c => c.firstname === firstname)
           }
-          return charactersData.characters
+          return charactersData
+        }
+      }
+    })
+  }),
+  mutation: new GraphQLObjectType({
+    name: 'Mutation',
+    fields: () => ({
+      createCharacter: {
+        type: characterType,
+        args: {
+          firstname: { type: GraphQLString },
+          house: { type: GraphQLString },
+          husband: { type: GraphQLString },
+          wife: { type: GraphQLString },
+          brothers: { type: new GraphQLList(GraphQLString) },
+          sisters: { type: new GraphQLList(GraphQLString) },
+          gender: { type: genderType }
+        },
+        resolve: (_, character) => {
+          charactersData.push(character)
+          return character
         }
       }
     })

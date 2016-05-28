@@ -1,5 +1,4 @@
-export default {
-  houses : [
+export default [
     {
       name: "Lannister",
       stronghold: "Castral Roc",
@@ -12,5 +11,4 @@ export default {
       motto: "Winter is coming",
       members: ["Arya", "Catelyn", "Eddard", "Robb"]
     }
-  ]
-}
+]

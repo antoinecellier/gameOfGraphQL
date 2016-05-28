@@ -1,12 +1,12 @@
-export default {
-  characters : [
+export default [
     {
       firstname: "Tywin",
       house: "Lannister",
       husband: null,
       wife: "Joannna",
       brothers: [],
-      sisters: []
+      sisters: [],
+      gender: "male"
     },
     {
       firstname: "Joanna",
@@ -14,7 +14,8 @@ export default {
       husband: "Tywin",
       wife: null,
       brothers: ["Joffrey"],
-      sisters: []
+      sisters: [],
+      gender: "female"
     },
     {
       firstname: "Jaime",
@@ -22,7 +23,8 @@ export default {
       husband: null,
       wife: null,
       brothers: ["Tyrion"],
-      sisters: []
+      sisters: [],
+      gender: "male"
     },
     {
       firstname: "Tyrion",
@@ -30,7 +32,8 @@ export default {
       husband: null,
       wife: null,
       brothers: ["Jaime"],
-      sisters: []
+      sisters: [],
+      gender: "male"
     },
     {
       firstname: "Joffrey",
@@ -38,7 +41,8 @@ export default {
       husband: null,
       wife: null,
       brothers: [],
-      sisters: ["Joanna"]
+      sisters: ["Joanna"],
+      gender: "male"
     },
     {
       firstname: "Arya",
@@ -46,7 +50,8 @@ export default {
       husband: null,
       wife: null,
       brothers: ["Robb"],
-      sister: []
+      sister: [],
+      gender: "female"
     },
     {
       firstname: "Catelyn",
@@ -54,7 +59,8 @@ export default {
       husband: "Eddard",
       wife: "",
       brothers: [],
-      sisters: []
+      sisters: [],
+      gender: "female"
     },
     {
       firstname: "Eddard",
@@ -62,7 +68,8 @@ export default {
       husband: "",
       wife: "Catelyn",
       brothers: [],
-      sisters: []
+      sisters: [],
+      gender: "male"
     },
     {
       firstname: "Robb",
@@ -70,7 +77,7 @@ export default {
       husband: "",
       wife: "",
       brothers: [],
-      sisters: ["Arya"]
+      sisters: ["Arya"],
+      gender: "male"
     }
-  ]
-}
+]

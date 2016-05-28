@@ -11,7 +11,7 @@ export const houseType = new GraphQLObjectType({
     motto: { type: GraphQLString },
     members: {
       type: new GraphQLList(characterType),
-      resolve: (house) => charactersData.characters.filter(c => c.house === house.name)
+      resolve: (house) => charactersData.filter(c => c.house === house.name)
     }
   })
 })
