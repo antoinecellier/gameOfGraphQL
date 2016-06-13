@@ -1,17 +1,17 @@
 import { GraphQLString, GraphQLObjectType, GraphQLList } from 'graphql'
 
-import { houseType } from './housesType'
+import { familyType } from './familiesType'
 import { genderType } from './genderType'
-import housesData from '../data/houses'
+import familiesData from '../data/families'
 import charactersData from '../data/characters'
 
 export const characterType = new GraphQLObjectType({
     name: 'Character',
     fields: () => ({
       firstname: { type: GraphQLString },
-      house: {
-        type: houseType,
-        resolve: (character) => housesData.filter( h => h.name === character.house)[0]
+      family: {
+        type: familyType,
+        resolve: (character) => familiesData.filter( f => f.name === character.family)[0]
       },
       husband: {
         type: characterType,

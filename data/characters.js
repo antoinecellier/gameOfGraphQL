@@ -1,7 +1,7 @@
 export default [
     {
       firstname: "Tywin",
-      house: "Lannister",
+      family: "Lannister",
       husband: null,
       wife: "Joannna",
       brothers: [],
@@ -10,7 +10,7 @@ export default [
     },
     {
       firstname: "Joanna",
-      house: "Lannister",
+      family: "Lannister",
       husband: "Tywin",
       wife: null,
       brothers: ["Joffrey"],
@@ -19,7 +19,7 @@ export default [
     },
     {
       firstname: "Jaime",
-      house: "Lannister",
+      family: "Lannister",
       husband: null,
       wife: null,
       brothers: ["Tyrion"],
@@ -28,7 +28,7 @@ export default [
     },
     {
       firstname: "Tyrion",
-      house: "Lannister",
+      family: "Lannister",
       husband: null,
       wife: null,
       brothers: ["Jaime"],
@@ -37,7 +37,7 @@ export default [
     },
     {
       firstname: "Joffrey",
-      house: "Lannister",
+      family: "Lannister",
       husband: null,
       wife: null,
       brothers: [],
@@ -46,7 +46,7 @@ export default [
     },
     {
       firstname: "Arya",
-      house: "Stark",
+      family: "Stark",
       husband: null,
       wife: null,
       brothers: ["Robb"],
@@ -55,7 +55,7 @@ export default [
     },
     {
       firstname: "Catelyn",
-      house: "Stark",
+      family: "Stark",
       husband: "Eddard",
       wife: "",
       brothers: [],
@@ -64,7 +64,7 @@ export default [
     },
     {
       firstname: "Eddard",
-      house: "Stark",
+      family: "Stark",
       husband: "",
       wife: "Catelyn",
       brothers: [],
@@ -73,7 +73,7 @@ export default [
     },
     {
       firstname: "Robb",
-      house: "Stark",
+      family: "Stark",
       husband: "",
       wife: "",
       brothers: [],
