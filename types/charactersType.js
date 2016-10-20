@@ -11,15 +11,15 @@ export const characterType = new GraphQLObjectType({
       firstname: { type: GraphQLString },
       family: {
         type: familyType,
-        resolve: (character) => familiesData.filter( f => f.name === character.family)[0]
+        resolve: (character) => familiesData.find( f => f.name === character.family)
       },
       husband: {
         type: characterType,
-        resolve: (character) => charactersData.filter( c => c.firstname === character.husband)[0]
+        resolve: (character) => charactersData.find( c => c.firstname === character.husband)
       },
       wife: {
         type: characterType,
-        resolve: (character) => charactersData.filter( c => c.firstname === character.wife)[0]
+        resolve: (character) => charactersData.find( c => c.firstname === character.wife)
       },
       brothers: {
         type: new GraphQLList(characterType),

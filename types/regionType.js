@@ -6,11 +6,11 @@ import familiesData from '../data/families'
 export const regionType = new GraphQLObjectType({
   name: 'Region',
   fields: () => ({
+    name: { type: GraphQLString },
+    area: { type: GraphQLInt },
     family: {
       type: familyType,
-      resolve: (region) => familiesData.filter( f => f.name === region.family)[0]
-    },
-    name: { type: GraphQLString },
-    area: { type: GraphQLInt }
+      resolve: (region) => familiesData.find( f => f.name === region.family)
+    }
   })
 })

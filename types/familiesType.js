@@ -16,11 +16,11 @@ export const familyType = new GraphQLObjectType({
     stronghold: {
       name: 'Stronghold',
       type: strongholdType,
-      resolve: (family) =>  strongholdData.filter(s => s.family === family.name)[0]
+      resolve: (family) =>  strongholdData.find(s => s.family === family.name)
     },
     region: {
       type: regionType,
-      resolve: (family) =>  regionData.filter(r => r.family === family.name)[0]
+      resolve: (family) =>  regionData.find(r => r.family === family.name)
     },
     motto: { type: GraphQLString },
     members: {

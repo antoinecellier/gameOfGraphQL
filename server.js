@@ -1,12 +1,14 @@
 import { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLList, GraphQLNonNull, GraphQLInt } from 'graphql'
+import { introspectionQuery } from 'graphql/utilities'
+
 import graphqlHTTP from 'express-graphql'
 import express from 'express'
 
 import familiesData from './data/families'
 import charactersData from'./data/characters'
 import regionData from'./data/region'
+import strongholdData from'./data/stronghold'
 
-import strongholdType from'./data/stronghold'
 import { characterType } from './types/charactersType'
 import { familyType } from './types/familiesType'
 import { genderType } from './types/genderType'
@@ -23,10 +25,7 @@ const schema = new GraphQLSchema({
           name: { type: GraphQLString }
         },
         resolve: (_, { name }) => {
-          if(name) {
-            return familiesData.filter(h => h.name === name)
-          }
-          return familiesData
+          return name ? familiesData.filter(h => h.name === name) : familiesData
         }
       },
       characters: {
@@ -35,10 +34,7 @@ const schema = new GraphQLSchema({
           firstname: { type: GraphQLString }
         },
         resolve: (_, { firstname }) => {
-          if(firstname) {
-            return charactersData.filter(c => c.firstname === firstname)
-          }
-          return charactersData
+          return firstname ? charactersData.filter(c => c.firstname === firstname) : charactersData
         }
       },
       places: {
@@ -46,10 +42,10 @@ const schema = new GraphQLSchema({
         args: {
           namePlace: { type : GraphQLString }
         },
-        resolve: (_, { namePlace }, context) => {
-          const places = regionData.concat(strongholdType)
+        resolve: (_, { namePlace }) => {
+          const places = regionData.concat(strongholdData)
 
-          return namePlace ? places.filter(p =>  p.name.indexOf(text) !== -1) : places
+          return namePlace ? places.filter(p =>  p.name.indexOf(namePlace) !== -1) : places
         }
       }
     })
@@ -90,7 +86,7 @@ const schema = new GraphQLSchema({
 });
 
 express()
-  .use('/graphql', graphqlHTTP(request => ({ schema, context: request, pretty: true, graphiql: true })))
+  .use('/graphql', graphqlHTTP(request => ({ schema, context: request, pretty: true, graphiql: true, rootValue: {} })))
   .listen(3000);
 
 console.log('GraphQL server running on http://localhost:3000/graphql');
